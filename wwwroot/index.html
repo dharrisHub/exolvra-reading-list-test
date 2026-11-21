@@ -4,10 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Reading List</title>
-  <link rel="stylesheet" href="app.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="./app.css">
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <main><h1>Reading List</h1><p>The initial application has not been implemented.</p></main>
+  <main class="app">
+    <h1>Reading List</h1>
+
+    <section class="panel" aria-labelledby="add-heading">
+      <h2 id="add-heading">Add a book</h2>
+      <div class="field">
+        <label for="title-input">Title <span class="required">(required)</span></label>
+        <input id="title-input" type="text" autocomplete="off" required aria-required="true" aria-describedby="add-feedback" maxlength="500">
+      </div>
+      <div class="field">
+        <label for="author-input">Author <span class="optional">(optional)</span></label>
+        <input id="author-input" type="text" autocomplete="off" maxlength="300">
+      </div>
+      <div class="actions">
+        <button id="add-button" type="button">Add book</button>
+        <p id="add-feedback" class="feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="list-heading">
+      <div class="list-header">
+        <h2 id="list-heading">Books</h2>
+        <p id="count" class="count" aria-live="polite">0 books</p>
+      </div>
+      <div class="search-row">
+        <label for="search-input">Search by title or author</label>
+        <div class="search-controls">
+          <input id="search-input" type="search" autocomplete="off" aria-controls="book-list">
+          <button id="clear-button" type="button" class="secondary">Clear search</button>
+          <button id="refresh-button" type="button" class="secondary">Refresh</button>
+        </div>
+      </div>
+      <p id="list-feedback" class="feedback" role="status" aria-live="polite"></p>
+      <ol id="book-list" class="book-list" aria-labelledby="list-heading"></ol>
+      <p id="empty-message" class="empty" hidden>No books saved yet. Add your first book above.</p>
+      <p id="no-results" class="empty" hidden></p>
+    </section>
+  </main>
 </body>
 </html>
