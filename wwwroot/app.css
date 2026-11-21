@@ -1,1 +1,103 @@
-/* Initial source only. Implement the responsive Reading List presentation here. */
+:root {
+  --bg: #f5f6f8;
+  --panel: #ffffff;
+  --text: #1c1f24;
+  --muted: #4f5763;
+  --border: #c9ced6;
+  --accent: #1f5fbf;
+  --accent-dark: #174a96;
+  --error: #b3261e;
+  --success: #1e6b34;
+  --focus: #ffbf47;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; line-height: 1.45; }
+
+.app {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 1rem; }
+h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.field { margin-bottom: 0.75rem; }
+
+label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+
+.required, .optional { font-weight: 400; color: var(--muted); font-size: 0.9em; }
+
+input[type="text"], input[type="search"] {
+  width: 100%;
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+input[aria-invalid="true"] { border-color: var(--error); border-width: 2px; }
+input[readonly] { background: #eef0f3; }
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:hover:not(:disabled) { background: var(--accent-dark); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+button.secondary { background: #fff; color: var(--accent); }
+button.secondary:hover:not(:disabled) { background: #e8effa; }
+
+input:focus-visible, button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--text);
+}
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+
+.feedback { margin: 0; min-height: 1.4em; font-size: 0.95rem; }
+.feedback.is-error { color: var(--error); font-weight: 600; }
+.feedback.is-success { color: var(--success); }
+.feedback.is-info { color: var(--muted); }
+
+.list-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.count { margin: 0 0 0.75rem; color: var(--muted); }
+
+.search-row { margin-bottom: 0.5rem; }
+.search-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.search-controls input { flex: 1 1 12rem; }
+
+.book-list { margin: 0.5rem 0 0; padding-left: 1.75rem; }
+.book { padding: 0.4rem 0; border-bottom: 1px solid #eceef1; overflow-wrap: anywhere; }
+.book:last-child { border-bottom: none; }
+.book-title { font-weight: 600; }
+.book-author { color: var(--muted); margin-left: 0.4rem; }
+
+.empty { margin: 0.5rem 0 0; color: var(--muted); font-style: italic; }
+
+[hidden] { display: none !important; }
